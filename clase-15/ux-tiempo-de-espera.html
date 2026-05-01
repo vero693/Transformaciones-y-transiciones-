@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+            background: #79148d;
+            padding: 15px 30px;
+        }
+
+        .nav>li {
+            position: relative;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgb(140, 30, 165);
+            border-radius: 6px;
+        }
+
+        .nav li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 160px;
+            padding: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav li:hover>ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav li ul li a {
+            color: #333;
+            padding: 10px 15px;
+        }
+
+        .nav li ul li a:hover {
+            background: rgb(140, 30, 165);
+            color: white;
+        }
+
+        .nav li ul li ul {
+            top: 100px;
+            left: 100%;
+        }
+
+        .nav > li > a::after {
+            content: " ▸";
+            font-size: 16px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .nav > li:hover > a::after {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="/">Mujer</a>
+            <ul>
+                <li>
+                    <a href="/">Camisetas</a>
+                </li>
+                <li>
+                    <a href="/">Pantalones</a>
+                </li>
+                <li>
+                    <a href="/">Shorts</a>
+                    <ul>
+                        <li>
+                            <a href="/">Cortos</a>
+                        </li>
+                        <li>
+                            <a href="/">Largos</a>
+                        </li>
+                        <li>
+                            <a href="/">Brillantes</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">Hombre</a>
+        </li>
+        <li>
+            <a href="/">Niños</a>
+        </li>
+    </ul>
+</body>
+
+</html>
