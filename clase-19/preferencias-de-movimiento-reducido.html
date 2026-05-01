@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefers Reduced Motion</title>
+    <style>
+        .card {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .back {
+            opacity: 1;
+        }
+
+        .face {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background-color: orchid;
+        }
+
+        .back {
+            background-color: rebeccapurple;
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .card {
+                transition: transform .6s ease 0.4s;
+            }
+
+            .card:hover {
+                transform: rotateY(180deg);
+            }
+
+            .back {
+                opacity: 1;
+                transform: rotateY(180deg);
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+</body>
+</html>
